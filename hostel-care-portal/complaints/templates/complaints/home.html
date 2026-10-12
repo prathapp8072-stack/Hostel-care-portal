@@ -1,0 +1,43 @@
+{% extends 'base.html' %}
+
+{% block content %}
+<!-- Hero Section -->
+<div class="p-5 mb-4 bg-white rounded-3 shadow-sm border text-center">
+    <div class="container-fluid py-3">
+        <h1 class="display-5 fw-bold text-primary">Welcome to Hostel Care Portal</h1>
+        <p class="col-md-8 fs-4 mx-auto text-muted">
+            Fast, efficient, and transparent grievance redressal for hostel residents. Report issues and track repair status in real-time.
+        </p>
+        {% if user.is_authenticated %}
+            <a href="{% url 'complaint_list' %}" class="btn btn-primary btn-lg mt-3">View My Complaints Dashboard</a>
+        {% else %}
+            <a href="{% url 'login' %}" class="btn btn-primary btn-lg mt-3">Login to Submit Complaint</a>
+        {% endif %}
+    </div>
+</div>
+
+<!-- Features Grid -->
+<div class="row text-center mt-5">
+    <div class="col-md-4 mb-4">
+        <div class="p-4 bg-white rounded shadow-sm border h-100">
+            <div class="fs-1 text-primary mb-2">⚡</div>
+            <h4>Quick Reporting</h4>
+            <p class="text-muted">Submit complaints for electrical, plumbing, or cleaning issues within seconds.</p>
+        </div>
+    </div>
+    <div class="col-md-4 mb-4">
+        <div class="p-4 bg-white rounded shadow-sm border h-100">
+            <div class="fs-1 text-primary mb-2">📸</div>
+            <h4>Photo Attachments</h4>
+            <p class="text-muted">Upload photos of the issue to help maintenance teams resolve it faster.</p>
+        </div>
+    </div>
+    <div class="col-md-4 mb-4">
+        <div class="p-4 bg-white rounded shadow-sm border h-100">
+            <div class="fs-1 text-primary mb-2">📊</div>
+            <h4>Live Tracking</h4>
+            <p class="text-muted">Track whether your ticket is Pending, In Progress, or Resolved live.</p>
+        </div>
+    </div>
+</div>
+{% endblock %}
